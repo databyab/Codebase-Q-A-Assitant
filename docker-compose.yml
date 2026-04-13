@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data/raw_repos:/app/data/raw_repos
+      - ./backend/data/vector_store:/app/data/vector_store
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      API_BASE_URL: http://backend:8000/api/v1
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend

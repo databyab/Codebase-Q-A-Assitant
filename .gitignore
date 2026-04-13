@@ -1,0 +1,13 @@
+**/.venv/
+**/venv/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+backend/.env
+backend/data/raw_repos/
+backend/data/vector_store/
+
+.streamlit/
